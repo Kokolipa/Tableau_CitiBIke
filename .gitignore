@@ -1,0 +1,9 @@
+# Ignore files
+.DS_Store
+CitiBike.csv
+Tableau source/
+
+# Ignore folders & zips
+CSVs/
+citybike.zip
+Tableau source/
