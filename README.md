@@ -7,7 +7,7 @@ Since 2013, the Citi Bike program has implemented a robust infrastructure for co
 However, while the data has been regularly updated, the team has yet to implement a dashboard or sophisticated reporting process. City officials have questions about the program, so your first task on the job is to build a set of data reports to provide the answers.
 
 ##### Project Description:
-Analysing CitiBike's wormest month (July) from 2023 to provide insights and explore the following questions:
+Analysing CitiBike's warmest month (July) from 2023 to provide insights and explore the following questions:
 1. Do members or casuals have higher usage? 
 2. Which stations are most popular? What is the average distance travelled overall? 
 3. What days of the week are most riders taken on? 
@@ -15,9 +15,10 @@ Analysing CitiBike's wormest month (July) from 2023 to provide insights and expl
 5. On average, for how long do users rant a bicycle? 
 6. Which zip codes approximately concentrate the largest amount of usage? 
 
-To answer these questions, two dashboards were created for each segment the company posses, members and casual users. Members are users that subscribed for an annual membership (Citi Bike plan  / Lyft Pink plan [pricing](https://citibikenyc.com/pricing)); Casual members = users who purchased 24-hour pass OR 3-day pass. 
+To answer these questions, two dashboards were created for each company segment: members and casual users. Members are users that subscribed for an annual membership (Citi Bike plan  / Lyft Pink plan [pricing](https://citibikenyc.com/pricing)); Casual members = users who purchased a 24-hour pass OR 3-day pass. 
+
 ### Description of the data: 
-There are 13 columns and 3,767,347 records of data from [`CitiBike`](https://s3.amazonaws.com/tripdata/index.html).
+There are 13 columns and 3,767,347 data records in July [`CitiBike`](https://s3.amazonaws.com/tripdata/index.html).
 ##### Columns: 
 ``` python
 # 1. ride_id               
@@ -30,17 +31,17 @@ There are 13 columns and 3,767,347 records of data from [`CitiBike`](https://s3.
 # 8. end_station_id        
 # 9. start_lat             
 # 10. start_lng             
-# 11. end_lat   ---> The lat and lng of the end point for a given ride.            
+# 11. end_lat   ---> The lat and lng of the endpoint for a given ride.            
 # 12. end_lng               
 # 13. member_casual  --> Segmentation column - identifying members and casual users         
-# 14. distance   ---> Defining a function to return the distance betwee two geolocation points given a sphere - Haversine formula
+# 14. distance   ---> Defining a function to return the distance between two geolocation points given a sphere - Haversine formula
 ```
         
 ### Assumption & Note:
 **Assumption:**
-* **Citibike's July data include multiple geo location per station.** The assumption here is that each station has a "static" geo location as well as "dynamic" geolocations for each bicycle docked in the station (each bicycle has a "tablet" that is docked to the stering wheel). 
+* **Citibike's July data include multiple geolocation per station.** The assumption here is that each station has a "static" geolocation as well as "dynamic" geolocations for each bicycle docked in the station (each bicycle has a "tablet" that is docked to the steering wheel). 
 **Note:**
-* What is the distance metric? The dataset does not include mutiple geolocations to indicate the root of a given ride. Haversine's formula allow us to calculate the distance between two stations, this data is being presented in the dashboard to calculate the average distance for members and casual users. 
+* What is the distance metric? The dataset does not include multiple geolocations to indicate the root of a given ride. Haversine's formula allows us to calculate the distance between two stations. This data is presented in the dashboard to calculate the average distance for members and casual users. 
 
 ##### Members Dashboard 
 ![members_dashboard](https://github.com/Kokolipa/Tableau_CitiBIke/blob/city_main/Dashboard_Images/Members_Dashboard.png)
@@ -55,14 +56,15 @@ There are 13 columns and 3,767,347 records of data from [`CitiBike`](https://s3.
 
 #### Extract: 
 * **Data Extraction:** Downloading the zip file from the CitiBike's data source (202307-citibike-tripdata.csv.zip)
-* Rendering the data extracted from the zip file to jupyter notebook using Pandas
-* Extracting the cleaned data using the zipfile python library using compresssion level 9. 
+* Rendering the data extracted from the zip file to Jupyter Notebook using Pandas
+* Extracting the cleaned data using the zipfile python library using compression level 9. 
 #### Transform: 
 * Removing null values
 * Memory optimisation -> Transforming the data types and reducing the bite size for each dtype.
 * Manipulation -> Leveraging Harvesine's function to calculate the distance between two geolocations (adding the distance column to the dataset). 
+**Download the clean data here** -> [`Cleaned Data - Drop Box`](https://www.dropbox.com/scl/fo/qq5xm11x8ejwpd5rc82z5/h?rlkey=n478zbk7g0vrfxdbzw224irnl&dl=0)
 #### Load: 
-* Loading the data (CSV) into Tableau, analysing the data, and uploading the visuals to the dashboards.
+* Load the data (CSV) into Tableau, analyse the data, and upload the visuals to the dashboards.
 
 
 #### Python Libraries Used:
