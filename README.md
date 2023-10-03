@@ -9,7 +9,7 @@ However, while the data has been regularly updated, the team has yet to implemen
 ##### Project Description:
 Analysing CitiBike's warmest month (July) from 2023 to provide insights and explore the following questions:
 1. Do members or casuals have higher usage? 
-2. Which stations are most popular? What is the average distance travelled overall? 
+2. Which stations are most popular? What is the overall average distance travelled? 
 3. What days of the week are most riders taken on? 
 4. What type of bicycle used most? 
 5. On average, for how long do users rant a bicycle? 
@@ -18,7 +18,7 @@ Analysing CitiBike's warmest month (July) from 2023 to provide insights and expl
 To answer these questions, two dashboards were created for each company segment: members and casual users. Members are users that subscribed for an annual membership (Citi Bike plan  / Lyft Pink plan [pricing](https://citibikenyc.com/pricing)); Casual members = users who purchased a 24-hour pass OR 3-day pass. 
 
 ### Description of the data: 
-There are 13 columns and 3,767,347 data records in July [`CitiBike`](https://s3.amazonaws.com/tripdata/index.html).
+There are 13 columns and 3,767,347 data records in July [`CitiBike`](https://s3.amazonaws.com/tripdata/index.html). 
 ##### Columns: 
 ``` python
 # 1. ride_id               
