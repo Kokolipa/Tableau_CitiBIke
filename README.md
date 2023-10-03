@@ -2,20 +2,21 @@
 ## Project Description  & Background- [![Tableau-Dashboard](https://img.shields.io/badge/Tableau-Dashboards-black?style=flat&logo=atandt)](https://public.tableau.com/views/CitiBike_GalBeeri/CasualRidersDashboard?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link) 
 
 ##### Background:
-Since 2013, the Citi Bike program has implemented a robust infrastructure for collecting data on the program's utilisation. Each month, bike data is collected, organised, and made public on the [`Citi Bike Data`](https://citibikenyc.com/system-data).
+Since 2013, the Citi Bike program has implemented robust infrastructure for collecting data on the program's utilisation. Each month, bike data is collected, organised, and made public on the [`Citi Bike Data`](https://citibikenyc.com/system-data).
 
 However, while the data has been regularly updated, the team has yet to implement a dashboard or sophisticated reporting process. City officials have questions about the program, so your first task on the job is to build a set of data reports to provide the answers.
 
 ##### Project Description:
 Analysing CitiBike's warmest month (July) from 2023 to provide insights and explore the following questions:
 1. Do members or casuals have higher usage? 
-2. Which stations are most popular? What is the overall average distance travelled? 
-3. What days of the week are most riders taken on? 
-4. What type of bicycle used most? 
-5. On average, for how long do users rant a bicycle? 
-6. Which zip codes approximately concentrate the largest amount of usage? 
+2. Which stations are most popular? 
+3. What is the overall average distance travelled? 
+3. What days of the week are most rides taken on? 
+4. What type of bicycle is used most? 
+5. On average, how long do users rent a bicycle? 
+6. Which zip codes have largest concentration of usage (approx.)? 
 
-To answer these questions, two dashboards were created for each company segment: members and casual users. Members are users that subscribed for an annual membership (Citi Bike plan  / Lyft Pink plan [pricing](https://citibikenyc.com/pricing)); Casual members = users who purchased a 24-hour pass OR 3-day pass. 
+To answer these questions, two dashboards were created for each company segment: members and casual users. Members are users that subscribed for an annual membership (Citi Bike plan  / Lyft Pink plan [pricing](https://citibikenyc.com/pricing)); Casual members are users who purchased a 24-hour pass OR 3-day pass. 
 
 ### Description of the data: 
 There are 13 columns and 3,767,347 data records in July [`CitiBike`](https://s3.amazonaws.com/tripdata/index.html). 
@@ -39,7 +40,7 @@ There are 13 columns and 3,767,347 data records in July [`CitiBike`](https://s3.
         
 ### Assumption & Note:
 **Assumption:**
-* **Citibike's July data include multiple geolocation per station.** The assumption here is that each station has a "static" geolocation as well as "dynamic" geolocations for each bicycle docked in the station (each bicycle has a "tablet" that is docked to the steering wheel). 
+* **Citibike's July data includes multiple geolocations per station.** The assumption here is that each station has a "static" geolocation as well as "dynamic" geolocations for each bicycle docked in the station (each bicycle has a "tablet" that is docked to the steering wheel). 
 **Note:**
 * What is the distance metric? The dataset does not include multiple geolocations to indicate the root of a given ride. Haversine's formula allows us to calculate the distance between two stations. This data is presented in the dashboard to calculate the average distance for members and casual users. 
 
@@ -53,13 +54,13 @@ There are 13 columns and 3,767,347 data records in July [`CitiBike`](https://s3.
 
 
 
-
+### ETL
 #### Extract: 
-* **Data Extraction:** Downloading the zip file from the CitiBike's data source (202307-citibike-tripdata.csv.zip)
-* Rendering the data extracted from the zip file to Jupyter Notebook using Pandas
+* **Data Extraction:** Downloading the zip file from CitiBike's data source (202307-citibike-tripdata.csv.zip).
+* Rendering the data extracted from the zip file to Jupyter Notebook using Pandas.
 * Extracting the cleaned data using the zipfile python library using compression level 9. 
 #### Transform: 
-* Removing null values
+* Removing null values.
 * Memory optimisation -> Transforming the data types and reducing the bite size for each dtype.
 * Manipulation -> Leveraging Harvesine's function to calculate the distance between two geolocations (adding the distance column to the dataset). 
 **Download the clean data here** -> [`Cleaned Data - Drop Box`](https://www.dropbox.com/scl/fo/qq5xm11x8ejwpd5rc82z5/h?rlkey=n478zbk7g0vrfxdbzw224irnl&dl=0)
